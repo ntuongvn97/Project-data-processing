@@ -1,0 +1,24 @@
+version: "3"
+services:
+    app:
+        build: ./src
+        ports:
+            - 8000:5000
+        volumes:
+            - ./src:/src
+        links:
+            - mqtt:mqtt
+        depends_on:
+            - mqtt
+        environment:
+            - MQTT_HOST=mqtt
+
+    mqtt:
+        image: ansi/mosquitto
+        container_name: mosquitto_app
+        ports:
+            - 1883:1883
+        # entrypoint: /usr/local/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+        # volumes:
+        #     - ./etc/mosquitto:/etc/mosquitto:ro
+        #     - ./var/log/mosquitto:/var/log/mosquitto:rw

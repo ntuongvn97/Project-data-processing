@@ -1,9 +1,6 @@
 import scrapy
 import re
 from pprint import pprint
-# array_field = ["draft", "STT", "NUMBER_PLATE",
-# "TYPE_OF_VEHICLE", "TYPE_OF_VIOLATION", "DATE", "ADDRESS"]
-# data = {}
 
 
 class BrickSetSpider(scrapy.Spider):
